@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ccx.jsj.dao.MenuMapper">
+
+
+
+    
+    <select id="selectMenuByRoleId" resultType="MenuDO">
+        select
+          m.menu_id, m.menu_name, m.permission, m.path, m.parent_menu_id , m.menu_type
+        from role_menu rm,menu m
+        where
+          rm.menu_id=m.menu_id
+          and rm.role_id=#{roleId}
+    </select>
+
+</mapper>

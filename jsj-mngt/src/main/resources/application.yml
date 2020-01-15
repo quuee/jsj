@@ -1,0 +1,40 @@
+#spring配置
+spring:
+  application:
+    #应用名称(服务提供者)
+    name: jsj
+  profiles:
+    #
+    include: dev-db,dev-custom
+
+server:
+  #端口
+  port: 9007
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  typeAliasesPackage: com.ccx.jsj.model
+  global-config:
+    banner: false
+    db-config:
+      #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
+      #如果不想根据全局设置来，可以自己定义主键生成的方式
+      id-type: AUTO
+      #字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
+      field-strategy: 1
+      tableUnderline: true
+    #驼峰下划线转换
+    #db-column-underline: true
+    #刷新mapper 调试神器
+    #refresh-mapper: true
+  # configuration 为mybatis原生配置
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: true
+    #配置JdbcTypeForNull
+    jdbc-type-for-null: 'null'
+    call-setters-on-nulls: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+logging:
+  config: classpath:logback-spring.xml

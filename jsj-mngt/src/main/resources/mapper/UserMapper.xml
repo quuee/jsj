@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ccx.jsj.dao.UserMapper">
+
+    <resultMap id="baseUser" type="UserDO">
+        <id column="user_id" property="userId"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="mobile" property="mobile"/>
+
+        <collection property="roleSet" select="com.ccx.jsj.dao.RoleMapper.selectRoleByUserId" column="user_id"/>
+    </resultMap>
+
+    <sql id="user_base_sql">
+        user_id,username,password,mobile,enable,source,create_date
+    </sql>
+    
+    <select id="selectUserByName" resultMap="baseUser">
+        select <include refid="user_base_sql"/> from `user` where enable=true and `username`= #{username}
+    </select>
+
+    <select id="selectUserByOpenId" resultMap="baseUser">
+        select <include refid="user_base_sql"/> from `user` where enable=true and `open_id`= #{openId}
+    </select>
+
+    <select id="selectUserByPhone" resultMap="baseUser">
+        select <include refid="user_base_sql"/> from `user` where enable=true and `mobile`= #{phone}
+    </select>
+
+    <select id="selectUserByNameAndPassword" resultMap="baseUser">
+        select <include refid="user_base_sql"/> from `user` where enable=true and `username`= #{username} and `password`=#{password}
+    </select>
+
+    <select id="selectUserNameLike" resultType="UserDO">
+        select <include refid="user_base_sql"/> from `user` where enable=true and `username` like concat('%',#{name},'%')
+    </select>
+</mapper>
