@@ -55,7 +55,7 @@ public class UserController {
     @ApiOperation("刷新token")
     @PostMapping("refreshToken")
     public R refreshToken(){
-        String authorization = request.getHeader(AppletConstants.TOKEN_HEADER);
+        String authorization = request.getHeader(AppletConstants.TOKEN_HEADER);//从request中获取token
         String token = authorization.replace(AppletConstants.BEARER, "");
         if(StringUtils.isEmpty(token)){
             //无效的token
@@ -81,6 +81,12 @@ public class UserController {
 
         String newToken = JwtUtils.createToken(username,authorities);
         return R.ok().put("token",newToken);
+    }
+
+    @ApiOperation("测试@RequestHeader注解")
+    @PostMapping("test_head_token")
+    public R getHeadToken(@RequestHeader("Authorization")String Authorization){
+        return R.ok(Authorization);
     }
 
     @PostMapping("pageList")
