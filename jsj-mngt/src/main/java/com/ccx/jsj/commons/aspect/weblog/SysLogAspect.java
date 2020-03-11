@@ -72,12 +72,12 @@ public class SysLogAspect {
         long time = System.currentTimeMillis() - beginTime;
 
         //保存日志
-        saveSysLog(point, time);
+        saveSysLog(point, time, proceed);
 
         return proceed;
     }
 
-    private void saveSysLog(ProceedingJoinPoint joinPoint, long time) {
+    private void saveSysLog(ProceedingJoinPoint joinPoint, long time,Object proceed) {
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         Method method = signature.getMethod();
 
@@ -94,6 +94,9 @@ public class SysLogAspect {
         Object[] args = joinPoint.getArgs();
         String params = JSON.toJSONString(args);
 
+        //返回的参数
+        String returnParam = JSON.toJSONString(proceed);
+
         //获取request
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         String ip = IPUtil.getIp(request);
@@ -101,8 +104,8 @@ public class SysLogAspect {
 //        JSONObject principal = MySecurityUtil.getPrincipal();
 //        Object username = principal.get("username");
 
-        logger.info("名字：{}，操作：{}，请求类名：{}，请求方法：{}，参数：{}，ip：{}，耗时：{}",
-                "",operate,className,methodName,params,ip,time);
+        logger.info("名字：{}，操作：{}，请求类名：{}，请求方法：{}，参数：{}，返回：{}，ip：{}，耗时：{}",
+                "",operate,className,methodName,params,returnParam,ip,time);
     }
 
 
