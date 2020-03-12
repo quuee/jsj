@@ -30,7 +30,7 @@ mybatis-plus:
   # configuration 为mybatis原生配置
   configuration:
     map-underscore-to-camel-case: true
-    cache-enabled: true
+    cache-enabled: false
     #配置JdbcTypeForNull
     jdbc-type-for-null: 'null'
     call-setters-on-nulls: true
