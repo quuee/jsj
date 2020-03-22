@@ -23,14 +23,11 @@
         <java.version>1.8</java.version>
 
         <!-- springCloud版本 -->
-        <spring.cloud.version>Greenwich.SR3</spring.cloud.version>
-        <!-- springCloud stream版本 -->
-        <spring.cloud.stream.version>Germantown.RELEASE</spring.cloud.stream.version>
+        <spring.cloud.version>Hoxton SR3</spring.cloud.version>
         <!-- springBoot版本 -->
-        <spring-boot.version>2.1.9.RELEASE</spring-boot.version>
-        <!-- Spring IO Platform -->
-        <spring-platform.version>Cairo-SR8</spring-platform.version>
-        <!-- 分布式事务管理器 -->
+        <spring-boot.version>2.2.5.RELEASE</spring-boot.version>
+
+        <!-- txlcn 分布式事务管理器 -->
         <codingapi.txlcn.version>5.0.2.RELEASE</codingapi.txlcn.version>
         <!-- seata 分布式事务管理器 -->
 
@@ -40,10 +37,8 @@
         <mybatis.version>2.1.0</mybatis.version>
         <!-- mybatis-plus -->
         <mybatis-plus.version>3.3.0</mybatis-plus.version>
-        <!-- 通用mapper -->
-        <tk.mapper.version>2.1.5</tk.mapper.version>
         <!-- 分页插件 -->
-        <pagehelper.version>1.2.12</pagehelper.version>
+<!--        <pagehelper.version>1.2.12</pagehelper.version>-->
         <!-- fastjson -->
         <fastjson.version>1.2.62</fastjson.version>
         <!-- hutool -->
@@ -77,39 +72,12 @@
                 <scope>import</scope>
             </dependency>
             <dependency>
-                <groupId>io.spring.platform</groupId>
-                <artifactId>platform-bom</artifactId>
-                <version>${spring-platform.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>${spring.cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
-
-            <!-- txlcn 分布式事务管理器-->
-            <!--<dependency>-->
-                <!--<groupId>com.codingapi.txlcn</groupId>-->
-                <!--<artifactId>txlcn-tc</artifactId>-->
-                <!--<version>${codingapi.txlcn.version}</version>-->
-            <!--</dependency>-->
-
-            <!--<dependency>-->
-                <!--<groupId>com.codingapi.txlcn</groupId>-->
-                <!--<artifactId>txlcn-tm</artifactId>-->
-                <!--<version>${codingapi.txlcn.version}</version>-->
-            <!--</dependency>-->
-
-            <!--<dependency>-->
-                <!--<groupId>com.codingapi.txlcn</groupId>-->
-                <!--<artifactId>txlcn-txmsg-netty</artifactId>-->
-                <!--<version>${codingapi.txlcn.version}</version>-->
-            <!--</dependency>-->
 
             <!-- seata 分布式事务管理器 -->
 
@@ -139,12 +107,6 @@
                 <!--<groupId>org.mybatis.spring.boot</groupId>-->
                 <!--<artifactId>mybatis-spring-boot-starter</artifactId>-->
                 <!--<version>${mybatis.version}</version>-->
-            <!--</dependency>-->
-
-            <!--<dependency>-->
-                <!--<groupId>tk.mybatis</groupId>-->
-                <!--<artifactId>mapper-spring-boot-starter</artifactId>-->
-                <!--<version>${tk.mapper.version}</version>-->
             <!--</dependency>-->
 
             <!--<dependency>-->
@@ -250,31 +212,31 @@
     </build>
 
 
-    <repositories>
-        <!--阿里云主仓库，代理了maven central和jcenter仓库-->
-        <repository>
-            <id>aliyun</id>
-            <name>aliyun</name>
-            <url>https://maven.aliyun.com/repository/public</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-        <!--阿里云代理Spring 官方仓库-->
-        <repository>
-            <id>spring-milestones</id>
-            <name>Spring Milestones</name>
-            <url>https://maven.aliyun.com/repository/spring</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
+<!--    <repositories>-->
+<!--        &lt;!&ndash;阿里云主仓库，代理了maven central和jcenter仓库&ndash;&gt;-->
+<!--        <repository>-->
+<!--            <id>aliyun</id>-->
+<!--            <name>aliyun</name>-->
+<!--            <url>https://maven.aliyun.com/repository/public</url>-->
+<!--            <releases>-->
+<!--                <enabled>true</enabled>-->
+<!--            </releases>-->
+<!--            <snapshots>-->
+<!--                <enabled>false</enabled>-->
+<!--            </snapshots>-->
+<!--        </repository>-->
+<!--        &lt;!&ndash;阿里云代理Spring 官方仓库&ndash;&gt;-->
+<!--        <repository>-->
+<!--            <id>spring-milestones</id>-->
+<!--            <name>Spring Milestones</name>-->
+<!--            <url>https://maven.aliyun.com/repository/spring</url>-->
+<!--            <releases>-->
+<!--                <enabled>true</enabled>-->
+<!--            </releases>-->
+<!--            <snapshots>-->
+<!--                <enabled>false</enabled>-->
+<!--            </snapshots>-->
+<!--        </repository>-->
+<!--    </repositories>-->
 
 </project>
