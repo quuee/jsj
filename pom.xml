@@ -39,7 +39,7 @@
         <!-- mybatis -->
         <mybatis.version>2.1.0</mybatis.version>
         <!-- mybatis-plus -->
-        <mybatis-plus.version>3.2.0</mybatis-plus.version>
+        <mybatis-plus.version>3.3.0</mybatis-plus.version>
         <!-- 通用mapper -->
         <tk.mapper.version>2.1.5</tk.mapper.version>
         <!-- 分页插件 -->

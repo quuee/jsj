@@ -1,5 +1,6 @@
 package com.ccx.jsj.config;
 
+import com.baomidou.mybatisplus.extension.plugins.OptimisticLockerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
@@ -20,4 +21,19 @@ public class MybatisPlusConfig {
         // paginationInterceptor.setLimit(500);
         return paginationInterceptor;
     }
+
+    /**
+     * 乐观所插件
+     * @return
+     */
+    @Bean
+    public OptimisticLockerInterceptor optimisticLockerInterceptor() {
+        return new OptimisticLockerInterceptor();
+    }
+
+    @Bean
+    public CommonFiledFillHandler commonFiledFillHandler(){
+        return new CommonFiledFillHandler();
+    }
+
 }
