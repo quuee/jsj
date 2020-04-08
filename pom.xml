@@ -23,7 +23,7 @@
         <java.version>1.8</java.version>
 
         <!-- springCloud版本 -->
-        <spring.cloud.version>Hoxton SR3</spring.cloud.version>
+        <spring.cloud.version>Hoxton.SR3</spring.cloud.version>
         <!-- springBoot版本 -->
         <spring-boot.version>2.2.5.RELEASE</spring-boot.version>
 
@@ -32,7 +32,7 @@
         <!-- seata 分布式事务管理器 -->
 
         <!-- 基于redis分布式锁框架 -->
-        <redisson.version>3.11.2</redisson.version>
+        <redisson.version>3.12.4</redisson.version>
         <!-- mybatis -->
         <mybatis.version>2.1.0</mybatis.version>
         <!-- mybatis-plus -->
@@ -91,7 +91,7 @@
             <!-- redis 分布式锁框架 -->
             <dependency>
                 <groupId>org.redisson</groupId>
-                <artifactId>redisson</artifactId>
+                <artifactId>redisson-spring-boot-starter</artifactId>
                 <version>${redisson.version}</version>
             </dependency>
 
