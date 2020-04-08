@@ -69,6 +69,7 @@ public class UserController {
         }
 
         String username = JwtUtils.getUsernameByToken(token);
+        // todo 需要增加openid查询
         UserDO userEntity = userService.queryUserByUsername(username);
         Set<GrantedAuthority> authorities=new HashSet<>();
         if(userEntity.getRoleSet()!=null && !userEntity.getRoleSet().isEmpty()){
