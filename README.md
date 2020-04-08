@@ -13,3 +13,4 @@
 |hutool|5.1.1|
 |lombok|1.18.10|
 |swagger|2.9.2|
+|guava|28.2-jre|
